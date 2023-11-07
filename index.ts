@@ -31,7 +31,7 @@ async function run(): Promise<void> {
     }
 
     const workingDir = core.getInput('working-dir') || '.'
-    let pkgManager
+    let pkgManager = 'npm'
     if (await ioUtil.exists(`${workingDir}/pnpm-lock.yaml`)) {
       pkgManager = 'pnpm'
     } else if (await ioUtil.exists(`${workingDir}/yarn.lock`)) {
